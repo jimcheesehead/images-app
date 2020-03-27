@@ -1,9 +1,13 @@
 <template>
   <div class="ui secondary pointing menu">
     <a href="/" class="active item">Image Storage</a>
-    {{ isLoggedIn }}
     <div class="right menu">
-      <a href="#" class="ui item" @click="login">Login</a>
+      <div v-if="isLoggedIn" class="horizontal">
+        <a href class="item">Galleries</a>
+        <a href class="item">Upload</a>
+        <a href class="item">Logout</a>
+      </div>
+      <a v-else href="#" class="ui item" @click="login">Login</a>
     </div>
   </div>
 </template>
@@ -17,3 +21,10 @@ export default {
   methods: mapActions(['login'])
 };
 </script>
+
+<style scoped>
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+</style>
