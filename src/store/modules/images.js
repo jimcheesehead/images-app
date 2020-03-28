@@ -13,6 +13,10 @@ const actions = {
     const { token } = rootState.auth;
     const response = await api.fetchImages(token);
     commit('setImages', response.data.data)
+  },
+  // eslint-disable-next-line no-unused-vars
+  async uploadImages({ commit }, images) {
+    console.log(images)
   }
 };
 
